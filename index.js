@@ -26,7 +26,6 @@ app.post("/submit", async (req, res) => {
     const weatherData = response.data;
     const iconCode = `${weatherData["weather"][0]["icon"]}`;
     const imgUrl = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
-    //onst weatherDescription = `The weather in ${weatherData.name} is ${weatherData.weather[0].description} with a temperature of ${weatherData.main.temp}°C.`;
     res.render("index.ejs", {
       imgUrl: imgUrl,
       cityName: cityName,
