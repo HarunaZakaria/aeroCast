@@ -1,2 +1,1 @@
-# amalitech
-this is  school website
+## To start this project run npm i

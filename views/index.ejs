@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/main.css" />
+    <title>tAeroCast</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo"><h1>AeroCast</h1></div>
+      <div class="header-title">
+        <h1>Welcome to AeroCast</h1>
+        <p>Your gateway to check our city weather</p>
+      </div>
+    </header>
+    <main>
+      <form action="/submit" method="post" class="form">
+        <input
+          type="text"
+          required
+          placeholder="Check Your City Weather..."
+          name="bookName"
+        />
+        <input type="submit" value="Search" />
+      </form>
+
+      <%if (!locals.cityName){%>
+      <p class="error">Enter your city name to check the weather</p>
+      <%} else{%>
+      <div class="weather-container">
+        <div class="weather-info">
+          <h2 class="city">Today's weather in <%= locals.cityName %> is</h2>
+          <div class="icon-temp">
+            <img src="<%= locals.imgUrl %>" alt="Weather Icon" />
+            <h2><%= locals.temperature %> °C</h2>
+          </div>
+
+          <p class="description"><%= locals.description %></p>
+        </div>
+      </div>
+      <%}%>
+    </main>
+    <footer class="footer">
+      <% const year = new Date().getFullYear(); %>
+      <p>&copy;<%= year %> AeroCast. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
